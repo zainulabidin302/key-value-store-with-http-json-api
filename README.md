@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Arbitrary depth json data store
 ## Key Value Data Store With HTTP API
 
@@ -12,3 +13,7 @@ data in heirarchical structure with arbitrary depth.
 # Retrieving Data
     `GET` `/store/path/to/store` defines the endpoint where a user can retrieve a payload 
     stored at the specific endpoint.
+=======
+# key-value-store-with-http-json-api
+JSON API with arbitrary depth storing capacity
+>>>>>>> 14fd2d40c96863333688e6ce01ad121bc39473e2
