@@ -23,9 +23,10 @@ let handle = (req, res) => {
 
     let route = parsedUrl.pathname.replace(/^\/|\/$/, '')
     
-    let buffer = new StringDecoder('utf-8')
+    let decoder = new StringDecoder('utf-8')
+    let buffer = ''
     req.on('data', (data) => {
-        buffer += buffer.write(data)
+        buffer += decoder.write(data)
     })
     req.on('end', () => { 
         handleRoute((statusCode, data) => {
@@ -44,7 +45,12 @@ let handleRoute = (cb, name, method, data) => {
         if (method == 'get') {
             store_get(name, cb)
         } else if (method == 'post') {
-            store_post(data, cb)
+            console.log(JSON.stringify(data))
+
+            console.log(
+                `name: ${name} `
+            )
+            store_post(name, data, cb)
         }
     } else {
         return cb(400, {'errorMessage': 'Route not found'})
